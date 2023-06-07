@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+// import App from './App.vue'
+import AppMapPolygon from './AppMapPolygon.vue'
 
-createApp(App).mount('#app')
+createApp(AppMapPolygon).mount('#app')
