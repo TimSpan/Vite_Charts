@@ -11,14 +11,12 @@ import { onMounted, reactive } from 'vue'
 onMounted(() => {
   MapLoader().then(AMap => {
     console.log('地图加载成功')
-    // console.log(slx)
+
     const map = new AMap.Map("container", {
       zoom: 4,
       // resizeEnable: true,
       center: [113.801655, 27.870046],
     })
-
-
 
     // 自定义marker      
     // 文档: https://lbs.amap.com/api/javascript-api-v2/guide/amap-marker/custom-marker
@@ -36,9 +34,6 @@ onMounted(() => {
 
       marker.setMap(map)
     }
-    // renderMarker({ name: '上栗镇' })
-
-
 
     const p_path = reactive({
       path: [],
@@ -116,8 +111,6 @@ onMounted(() => {
       return centerLonLat;
     }
 
-
-
     // 初始遍历上栗地图范围数据
     slx.features.forEach((item, index) => {
       // console.log(2);
@@ -128,8 +121,6 @@ onMounted(() => {
         center: center,
       })
 
-
-
       const path = []
       item.geometry.coordinates[0].forEach((ele, i) => {
         path.push(new AMap.LngLat(ele[0], ele[1]))
@@ -137,11 +128,6 @@ onMounted(() => {
       p_path.path = path
       addPolygon(index)
     })
-
-
-
-
-
 
   })
 })
